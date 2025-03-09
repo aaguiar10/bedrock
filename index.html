@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedrock Software</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #1a2b3c;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #4caf50;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4caf50;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(26, 43, 60, 0.7), rgba(26, 43, 60, 0.7));
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1a2b3c;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #2c3e50;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .about-content,
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text,
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 1rem;
+        }
+
+        .about-image,
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: #f9f9f9;
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        footer {
+            background-color: #1a2b3c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Bedrock Software</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Building Tomorrow's Technology</h1>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="services" style="background-color: #f5f5f5;">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom Software Development</h3>
+                    <p>
+                        Tailored software solutions designed to meet your specific needs.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>Web Application Development</h3>
+                    <p>
+                        Responsive, scalable web applications that provide seamless user
+                        experiences across all devices.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>UI/UX Design</h3>
+                    <p>
+                        User-centered design that enhances user satisfaction and improves
+                        product usability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Armani Aguiar</h3>
+                    <p>CEO &amp; Founder</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: #f5f5f5;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Contact Us</h2>
+            <div
+                class="contact-content"
+                style="display: flex; justify-content: center; align-items: center;"
+            >
+                <div class="contact-info" style="text-align: center;">
+                    <p>bedrckcode@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bedrock Software</p>
+            <p>Providing innovative software since 2023</p>
+        </div>
+    </footer>
+</body>
+</html>
