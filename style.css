@@ -5,6 +5,12 @@
   font-family: 'Inter', 'Arial', sans-serif;
 }
 
+/* CSS Custom Properties */
+:root {
+  --vh: 1vh;
+  --header-height: 80px;
+}
+
 body {
   line-height: 1.7;
   color: #4a4a4a;
@@ -27,7 +33,10 @@ header {
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
 }
 
 .header-content {
@@ -80,22 +89,24 @@ nav ul li a:hover {
 }
 
 .hero {
+  /* Hero background with overlay and responsive height */
   background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)),
     url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1400&q=80')
-      no-repeat center center/cover; /* Hero background with image and overlay */
-  min-height: 100vh;
+      no-repeat center center/cover;
+  min-height: calc(var(--vh, 1vh) * 100);
   display: flex;
   align-items: center;
   text-align: center;
   color: white;
-  padding-top: 60px; /* Account for fixed header */
+  padding-top: var(--header-height);
+  padding-bottom: 2rem;
 }
 
 .hero-content h1 {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for readability */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-logo {
@@ -107,6 +118,7 @@ nav ul li a:hover {
   font-size: 1.3rem;
   margin-bottom: 2.5rem;
   font-weight: 300;
+  text-wrap: balance;
 }
 
 .btn {
@@ -115,25 +127,25 @@ nav ul li a:hover {
   color: white;
   padding: 0.9rem 1.8rem;
   border: none;
-  border-radius: 50px; /* Pill-shaped button */
+  border-radius: 50px;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
   transition: background-color 0.3s, transform 0.3s;
-  box-shadow: 0 4px 10px rgba(82, 168, 240, 0.3); /* Button shadow */
+  box-shadow: 0 4px 10px rgba(82, 168, 240, 0.3);
 }
 
 .btn:hover {
   background: #3e91e0;
-  transform: translateY(-2px); /* Slight lift on hover */
+  transform: translateY(-2px);
 }
 
 section {
   padding: 6rem 0;
 }
 
+/* Alternating section backgrounds */
 section:nth-child(even) {
-  /* Alternating section backgrounds */
   background-color: #f8f9fa;
 }
 
@@ -144,11 +156,11 @@ section h2 {
   font-weight: 700;
   color: #34495e;
   position: relative;
-  padding-bottom: 1rem; /* Space for underline */
+  padding-bottom: 1rem;
 }
 
+/* Decorative underline for section titles */
 section h2::after {
-  /* Underline effect for section titles */
   content: '';
   position: absolute;
   bottom: 0;
@@ -334,7 +346,6 @@ section h2::after {
 }
 
 form {
-  /* Form styling */
   display: grid;
   gap: 1.5rem;
 }
@@ -391,44 +402,132 @@ footer p:last-child {
   margin-bottom: 0;
 }
 
+/* Mobile Layout Adjustments */
 @media (max-width: 768px) {
+  :root {
+    --header-height: 100px;
+  }
+
   .header-content {
     flex-direction: column;
     align-items: center;
+    padding: 0.5rem 0;
   }
   .logo {
-    margin-bottom: 0.5rem; /* Space below logo on mobile */
+    margin-bottom: 0.5rem;
   }
 
   nav ul {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     justify-content: center;
   }
 
   nav ul li {
-    margin: 0 1rem; /* Adjust spacing for mobile */
+    margin: 0 1rem;
   }
 
   .hero {
-    padding-top: 120px; /* More padding for mobile due to taller header */
+    min-height: calc(var(--vh, 1vh) * 100);
+    padding-top: var(--header-height);
+    padding-bottom: 3rem;
   }
   .hero-content h1 {
-    font-size: 2.5rem; /* Adjusted for mobile */
+    font-size: 2.5rem;
+    line-height: 1.2;
   }
   .hero-content p {
-    font-size: 1.1rem; /* Adjusted for mobile */
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
   }
 
   section {
-    padding: 4rem 0; /* Reduced padding for mobile */
+    padding: 4rem 0;
   }
   section h2 {
-    font-size: 2rem; /* Adjusted for mobile */
+    font-size: 2rem;
     margin-bottom: 3rem;
   }
   .services-grid,
   .team-grid {
-    grid-template-columns: 1fr; /* Single column for mobile */
+    grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  /* Larger touch targets for mobile */
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .service-card,
+  .team-member {
+    padding: 2rem;
+  }
+}
+
+/* Small Screen Optimizations */
+@media (max-width: 480px) {
+  :root {
+    --header-height: 110px;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .logo-text-container {
+    font-size: 1.6rem;
+  }
+
+  nav ul li {
+    margin: 0 0.5rem;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-card,
+  .team-member {
+    padding: 1.5rem;
+  }
+}
+
+/* Tablet Landscape Optimization */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .hero {
+    min-height: calc(var(--vh, 1vh) * 100);
+    padding-top: var(--header-height);
+    padding-bottom: 2rem;
+  }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero {
+    background-image: linear-gradient(
+        rgba(44, 62, 80, 0.8),
+        rgba(44, 62, 80, 0.8)
+      ),
+      url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=2400&q=80');
   }
 }
